@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Itzz Nails — uñas, cabello, cejas, pestañas y maquillaje. Reserva tu cita en línea." />
+  <title>Itzz Nails</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Italiana&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20260722-6" />
+</head>
+<body>
+  <div class="grain"></div>
+  <header class="nav-wrap">
+    <nav class="nav shell">
+      <a class="brand brand-logo" href="#inicio" aria-label="Itzz Nails, inicio"><img src="assets/logo-itzel.jpeg" alt="Logotipo Itzz Nails"><span><b>ITZZ NAILS</b><small>ESTÉTICA UNISEX</small></span></a>
+      <button class="menu-btn" aria-label="Abrir menú">☰</button>
+      <div class="nav-links">
+        <a href="#servicios">Servicios</a><a href="#trabajos">Trabajos</a><a href="#nosotras">Nosotras</a>
+      </div>
+      <div class="nav-contact"><a href="tel:3122724598">312 272 4598</a><button class="btn btn-small open-booking">Reservar cita</button></div>
+    </nav>
+  </header>
+
+  <main id="inicio">
+    <section class="hero shell">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">BELLEZA QUE SE SIENTE TUYA</p>
+        <h1>Tu momento.<br><em>Tu estilo.</em></h1>
+        <p class="hero-text">Un espacio para consentirte, renovar tu look y salir sintiéndote increíble.</p>
+        <div class="hero-actions"><button class="btn open-booking">Agenda tu cita <span>↗</span></button><a href="#servicios" class="text-link">Ver servicios ↓</a></div>
+        <div class="trust"><span>✦ Atención personalizada</span><span>✦ Productos de calidad</span></div>
+      </div>
+      <div class="hero-art reveal">
+        <div class="arch"><div class="arch-inner logo-showcase"><img src="assets/logo-itzel.jpeg" alt="Itzz Nails"></div></div>
+        <div class="float-card"><span>Tu cita,</span><strong>tu momento ✦</strong></div>
+        <div class="spark s1">✦</div><div class="spark s2">✧</div>
+      </div>
+    </section>
+
+    <section class="marquee"><div>UÑAS ✦ CABELLO ✦ CEJAS ✦ PESTAÑAS ✦ MAQUILLAJE ✦ TU MEJOR VERSIÓN ✦ UÑAS ✦ CABELLO ✦ CEJAS ✦ PESTAÑAS ✦</div></section>
+
+    <section class="section shell" id="servicios">
+      <div class="section-head"><div><p class="eyebrow">LO QUE HACEMOS</p><h2>Servicios para<br><em>realzar lo que eres</em></h2></div><p>Elige tu favorito y encuentra el horario perfecto para ti.</p></div>
+      <div class="category-pills" id="categoryPills"></div>
+      <div class="services-grid" id="servicesGrid"></div>
+    </section>
+
+    <section class="about" id="nosotras">
+      <div class="shell about-grid">
+        <div class="about-art"><div class="blob">Itzz<br><i>Nails</i></div><span class="round-text">HECHO CON AMOR · PARA TI ·</span></div>
+        <div><p class="eyebrow">UN ESPACIO PARA TI</p><h2>Más que belleza,<br><em>una experiencia</em></h2><p>En Itzz Nails cuidamos cada detalle. Queremos que te sientas escuchada, cómoda y feliz con el resultado.</p><div class="stats"><div><b>100%</b><span>Personalizado</span></div><div><b>✦</b><span>Con amor</span></div><div><b>5★</b><span>Experiencia</span></div></div><button class="btn open-booking">Quiero mi cita</button></div>
+      </div>
+    </section>
+
+    <section class="section shell" id="trabajos">
+      <div class="section-head"><div><p class="eyebrow">NUESTRO TRABAJO</p><h2>Un poquito de<br><em>nuestra magia</em></h2></div><p>Resultados hechos con paciencia, técnica y mucho cariño.</p></div>
+      <div class="gallery" id="gallery"></div>
+    </section>
+
+    <section class="cta shell"><div><p class="eyebrow">¿LISTA PARA CONSENTIRTE?</p><h2>Tu próximo look<br><em>empieza aquí</em></h2></div><button class="btn btn-light open-booking">Reservar mi cita ↗</button></section>
+  </main>
+
+  <footer><div class="shell footer-grid"><div class="footer-brand"><img src="assets/logo-itzel.jpeg" alt="Itzz Nails"><div><b>Itzz Nails</b><small>Belleza para tu mejor versión</small></div></div><div><b>Horario</b><p id="footerHours"></p></div><div><b>Contacto</b><p><a href="tel:3122724598">312 272 4598</a><br><a href="https://wa.me/523122724598" target="_blank" rel="noopener">Escríbenos por WhatsApp</a><br>Atención con cita previa</p></div><a class="admin-link" href="/admin.html">Administrar sitio →</a></div><div class="shell copyright">© 2026 Itzz Nails <span>Hecho con ✦ en México</span></div></footer>
+
+  <a class="whatsapp-float" href="https://wa.me/523122724598?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20una%20cita" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><span>WhatsApp</span><b>✆</b></a>
+
+  <div class="modal" id="bookingModal" aria-hidden="true"><div class="modal-backdrop close-modal"></div><section class="modal-panel"><button class="modal-close close-modal">×</button><div class="booking-head"><p class="eyebrow">RESERVA EN LÍNEA</p><h2 id="bookingTitle">Agenda tu <em>momento</em></h2><div class="steps"><span class="active">1</span><i></i><span>2</span><i></i><span>3</span></div></div><div id="bookingContent"></div></section></div>
+
+  <input type="file" id="photoInput" accept="image/*" hidden multiple>
+  <div id="toast" class="toast"></div>
+  <script src="app.js?v=20260722-6"></script>
+</body>
+</html>

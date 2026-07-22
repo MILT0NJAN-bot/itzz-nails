@@ -1,0 +1,12 @@
+{
+  "name": "itzz-nails",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sitio, agenda y panel administrativo de Itzz Nails",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "start": "node --no-warnings server.js"
+  }
+}
