@@ -5,7 +5,7 @@ const path=require('node:path');
 const crypto=require('node:crypto');
 const {DatabaseSync}=require('node:sqlite');
 
-const ROOT=__dirname, DATA_DIR=path.join(ROOT,'data'), DB_FILE=path.join(DATA_DIR,'itznails.db');
+const ROOT=__dirname, DATA_DIR=process.env.RAILWAY_VOLUME_MOUNT_PATH||path.join(ROOT,'data'), DB_FILE=path.join(DATA_DIR,'itznails.db');
 fs.mkdirSync(DATA_DIR,{recursive:true});
 const db=new DatabaseSync(DB_FILE); db.exec('PRAGMA foreign_keys=ON; PRAGMA journal_mode=WAL; PRAGMA busy_timeout=5000;');
 
@@ -105,4 +105,4 @@ async function api(req,res,url){const p=url.pathname,m=req.method;
 }
 const mime={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.svg':'image/svg+xml','.png':'image/png','.jpg':'image/jpeg','.jpeg':'image/jpeg','.ico':'image/x-icon'};
 const server=http.createServer(async(req,res)=>{try{const url=new URL(req.url,'http://localhost'),cleanPath=url.pathname.length>1?url.pathname.replace(/\/+$/,''):url.pathname;if(cleanPath.startsWith('/api/'))return await api(req,res,url);if(cleanPath==='/admin.html'&&ADMIN_ROUTE!=='/admin.html')return error(res,404,'Página no encontrada');let file=cleanPath==='/'?'index.html':cleanPath===ADMIN_ROUTE?'admin.html':decodeURIComponent(cleanPath.slice(1));file=path.normalize(file);const full=path.join(ROOT,file);if(!full.startsWith(ROOT)||!fs.existsSync(full)||fs.statSync(full).isDirectory())return error(res,404,'Archivo no encontrado');const adminPage=file==='admin.html';res.writeHead(200,{...securityHeaders,'Content-Type':mime[path.extname(full)]||'application/octet-stream','Cache-Control':adminPage?'no-store':'no-cache',...(adminPage?{'X-Robots-Tag':'noindex, nofollow, noarchive'}:{})});fs.createReadStream(full).pipe(res)}catch(e){console.error(e);error(res,e.status||500,e.status?e.message:'Error interno del servidor')}});
-const PORT=Number(process.env.PORT)||8080;server.listen(PORT,'0.0.0.0',()=>{console.log(`Itzz Nails listo en 0.0.0.0:${PORT}`);console.log(`Ruta administrativa: ${ADMIN_ROUTE}`)});
+const PORT=Number(process.env.PORT)||8080;server.listen(PORT,'0.0.0.0',()=>{console.log(`Itzz Nails listo en 0.0.0.0:${PORT}`);console.log(`Base de datos: ${DB_FILE}`);if(process.env.RAILWAY_ENVIRONMENT&&!process.env.RAILWAY_VOLUME_MOUNT_PATH)console.warn('IMPORTANTE: no hay volumen persistente conectado; las citas se perderán en el próximo despliegue.');console.log(`Ruta administrativa: ${ADMIN_ROUTE}`)});
